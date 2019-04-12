@@ -1,0 +1,845 @@
+@charset "utf-8";
+
+/*
+@名称: base
+@功能: 重设浏览器默认样式
+*/
+
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+
+html {
+    color: #000;
+    background: #fff;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+
+/* HTML5 媒体文件跟 img 保持一致 */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+
+body,
+button,
+input,
+select,
+textarea {
+    font: normal 14px/24px "Helvetica Neue", Helvetica, STheiti, "Microsoft Yahei", "冬青黑体简体中文 w3", 宋体, Arial, Tahoma, sans-serif, serif;
+    word-wrap: break-word;
+}
+
+input,
+button,
+textarea,
+select,
+option,
+optiongroup {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+input,
+select,
+textarea {
+    font-size: 100%;
+}
+
+
+/* 去掉各Table cell 的边距并让其边重合 */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* IE bug fixed: th 不继承 text-align*/
+
+th {
+    text-align: inherit;
+}
+
+
+/* 去除默认边框 */
+
+fieldset,
+img {
+    border: 0;
+}
+
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+
+iframe {
+    display: block;
+}
+
+
+/* 去掉 firefox 下此元素的边框 */
+
+abbr,
+acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+
+/* 一致的 del 样式 */
+
+del {
+    text-decoration: line-through;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+    font-style: normal;
+    font-weight: 500;
+}
+
+
+/* 去掉列表前的标识, li 会继承 */
+
+ol,
+ul {
+    list-style: none;
+}
+
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+
+caption,
+th {
+    text-align: left;
+}
+
+
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: 500;
+}
+
+q:before,
+q:after {
+    content: '';
+}
+
+
+/* 统一上标和下标 */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+a {
+    color: #333;
+}
+
+
+/* 让链接在 hover 状态下显示下划线 */
+
+a:hover {
+    text-decoration: none;
+    color: #c00;
+}
+
+
+/* 默认不显示下划线，保持页面简洁 */
+
+ins,
+a {
+    text-decoration: none;
+}
+
+
+/* 清理浮动 */
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+    /* for IE6 IE7 */
+}
+
+
+/* 隐藏, 通常用来与 JS 配合 */
+
+body .fn-hide {
+    display: none;
+}
+
+
+/* 设置内联, 减少浮动带来的bug */
+
+.fn-left,
+.fn-right {
+    display: inline;
+}
+
+.fn-left {
+    float: left;
+}
+
+.fn-right {
+    float: right;
+}
+
+.banner {
+    height: 6.5rem;
+    position: relative;
+    background: url(../images/banner.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+
+.getSchool {
+    position: relative;
+}
+
+.getSchool select {
+    position: absolute;
+    width: 3.6rem;
+    z-index: 10000;
+    top: .45rem;
+    height: 1rem;
+    outline: none;
+    border: #F6F6F6;
+    background-color: #fff;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.getFromInfo {
+    width: 3.75rem;
+    height: 3.5rem;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 1px 10px 0px rgba(131, 131, 131, 0.3);
+    z-index: 99;
+    padding: .3rem .28rem;
+    float: right;
+    margin: 1.8rem 2.7rem 0 0;
+}
+
+.getInfo ul li {
+    height: .40rem;
+    margin-bottom: .10rem;
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+}
+
+.getInfo ul li input {
+    height: .40rem;
+    border: none;
+    padding-left: .50rem;
+    font-size: .14rem;
+}
+
+.getInfo ul li.getName input.name,
+.getInfo ul li.getPhone input.phone,
+.getInfo ul li.getCode input.code,
+.getInfo ul li.getSchool input.school,
+.getInfo ul li.getCity select {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    width: 0%;
+    display: block;
+}
+
+.getInfo ul li.getName input.name {
+    width: 3rem;
+    height: .4rem;
+    background: url(../images/user.png) #F6F6F6 .2rem no-repeat;
+}
+
+.getInfo ul li.getPhone input.phone {
+    width: 3rem;
+    height: .4rem;
+    background: url(../images/phone.png) #F6F6F6 .2rem no-repeat;
+}
+
+.getInfo ul li.getSchool input.school {
+    width: 3rem;
+    height: .4rem;
+    background: url(../images/driving.png) #F6F6F6 .2rem no-repeat;
+}
+
+.getInfo ul li.getCode input.code {
+    width: 1.7rem;
+    height: .4rem;
+    background: url(../images/validation.png) #F6F6F6 .2rem no-repeat;
+}
+
+.getInfo ul li.getCity {
+    line-height: .4rem;
+    padding-left: .5rem;
+    background: url(../images/location.png) #F6F6F6 .2rem no-repeat;
+}
+
+.getInfo ul li.getCode input.getCodeInfo {
+    width: 1.20rem;
+    margin-left: .1rem;
+    background: #F6AB00;
+    color: #fff;
+    padding: 0;
+    cursor: pointer;
+}
+
+.submitInfo {
+    height: .41rem;
+    background: #F6AB00;
+    color: #fff;
+    height: .4rem;
+    line-height: .4rem;
+    text-align: center;
+    margin-top: .2rem;
+    cursor: pointer;
+}
+
+.submitTips {
+    margin-top: .15rem;
+    text-align: center;
+    color: #CCCCCC;
+    font-size: .12rem;
+}
+
+.name,
+.phone,
+.school,
+.code,
+.getInfo ul li.getCity select {
+    transition: all 0.3s ease-in-out;
+}
+
+.name:focus,
+.phone:focus,
+.code:focus,
+.city:focus,
+.school:focus,
+.getSchool ul li select:focus,
+.getInfo ul li.getCity select:focus {
+    outline: none;
+    border-color: #FFEC8B;
+    color: #333;
+    box-shadow: 0 0 10px #F6AB00;
+    border-radius: .05rem;
+}
+
+.getInfo ul li.getCity select {
+    border: none;
+    background: #F6F6F6;
+}
+
+.getInfo ul li.getCity select:first-child {
+    margin-right: .1rem;
+    border-right: 1px solid rgb(233, 233, 233);
+}
+
+.byStagesTab1Cont {
+    width: 12rem;
+    margin: 0 auto;
+}
+
+.byStagesTab4Cont {
+    width: 11.5rem;
+    margin: 0 auto;
+}
+
+.byStagesTab1ContSpec {
+    width: 15rem;
+    margin: 0 auto;
+}
+
+.tab1Title {
+    margin-top: 1.08rem;
+    font-size: .6rem;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: #F6AB00;
+    text-align: center;
+}
+
+.tab1Cont {
+    margin-top: .80rem;
+    margin-bottom: 1.15rem;
+}
+
+.tab1Cont ul {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.tab1Cont ul li {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    width: 0%;
+    display: block;
+    text-align: center;
+}
+
+.tab1Cont ul li h2 {
+    font-size: .42rem;
+    font-weight: bold;
+    font-family: MicrosoftYaHei;
+    color: rgba(105, 105, 105, 1);
+    line-height: .64rem;
+}
+
+.tab1Cont ul li p {
+    font-size: .36rem;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(176, 176, 176, 1);
+    line-height: .64rem;
+}
+
+.byStagesTab2 {
+    height: 6.80rem;
+    background: url(../images/about_background.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+
+.tab2Title {
+    width: 100%;
+    float: left;
+    margin-top: 2.15rem;
+    font-size: .50rem;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: #F6AB00;
+    text-align: center;
+}
+
+.tab2Cont {
+    float: left;
+    width: 100%;
+    font-family: MicrosoftYaHei;
+    font-size: .39rem;
+    font-weight: 400;
+    color: rgba(104, 104, 104, 1);
+    line-height: .77rem;
+    margin-top: .60rem;
+    text-align: justify;
+}
+
+.tab3contL {
+    /* width: 3.20rem; */
+    float: left;
+}
+
+.tab3contR {
+    /* width: 3.11rem; */
+    float: right;
+    margin-top: 2.50rem;
+    text-align: center;
+}
+
+.tab3contR img {
+    width: 3rem;
+}
+
+.tab3contR p {
+    width: 3.0rem;
+    height: .8rem;
+    font-size: .32rem;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: rgba(105, 105, 105, 1);
+    line-height: .45rem;
+}
+
+.byStagesTab4 {
+    background: #FAFCFD;
+    margin-top: .50rem;
+}
+
+.tab4Title {
+    margin-top: .80rem;
+    font-size: .60rem;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: rgba(246, 171, 0, 1);
+    line-height: .85rem;
+    width: 100%;
+    float: left;
+}
+
+.tab4Cont {
+    width: 100%;
+    float: left;
+    position: relative;
+    padding-left: .50rem;
+    font-size: .34rem;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(105, 105, 105, 1);
+    line-height: .85rem;
+    padding-bottom: 1.10rem;
+}
+
+.tab4Cont::before {
+    content: "";
+    position: absolute;
+    width: .20rem;
+    height: .20rem;
+    left: 0;
+    top: .33rem;
+    background: #F6AB00;
+    transform: rotate(45deg);
+}
+
+.byStagesTab3 {
+    margin-top: .50rem;
+}
+
+.tips {
+    background: rgba(0, 0, 0, .6);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 99;
+}
+
+.tipsSuccess {
+    width: 5.50rem;
+    height: 3.65rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -1.82rem;
+    margin-left: -2.75rem;
+    background: #fff;
+    text-align: center;
+    border-radius: .10rem;
+}
+
+.tipsTitle {
+    height: .40rem;
+    line-height: .40rem;
+    text-align: center;
+    /* background: #666; */
+
+    background: -webkit-linear-gradient(left, #F6AB00, #F08300);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #F6AB00, #F08300);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #F6AB00, #F08300);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #F6AB00, #F08300);
+    /* 标准的语法 */
+
+    position: relative;
+    color: #fff;
+    font-size: .16rem;
+    border-top-left-radius: .08rem;
+    border-top-right-radius: .08rem;
+}
+
+.tipsTitle img {
+    position: absolute;
+    right: .20rem;
+    top: .10rem;
+    cursor: pointer;
+}
+
+.StateImg {
+    margin-top: .40rem;
+}
+
+.StateImg img {
+    width: 1rem;
+    height: 1rem;
+}
+
+.StateTxt {
+    font-family: 'MicrosoftYaHeiUI';
+    font-size: .18rem;
+    font-weight: 400;
+    color: #333;
+}
+
+.StateInput {
+    margin-top: .30rem;
+    font-size: .16rem;
+
+}
+
+.StateInput span {
+    width: 2.00rem;
+    height: .40rem;
+    line-height: .40rem;
+    background: #F6AB00;
+    display: inline-block;
+    font-size: .16rem;
+    color: #fff;
+    cursor: pointer;
+    border-radius: .04rem;
+}
+
+.dae-header {
+    height: .90rem;
+    background-color: #fff;
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    justify-content: space-between;
+    -webkit-box-pack: space-between;
+    -ms-flex-pack: space-between;
+    -webkit-justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.dae-header .logo_left {
+    width: 3.00rem;
+    height: .44rem;
+    cursor: pointer;
+}
+
+.dae-header .logo_right {
+    width: 2.00rem;
+    height: .32rem;
+}
+
+.detail-box6 {
+    width: 100%;
+    height: 3.03rem;
+    background: rgba(248, 248, 248, 1);
+    display: flex;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+}
+
+.detail-box6 .contract-box {
+    width: 2.51rem;
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-box-orient: column;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    font-family: Microsoft YaHei;
+    /* flex: 1.5; */
+    float: left;
+    margin-left: 4.7rem;
+}
+
+.detail-box6 .contract-box .line1 {
+    font-size: .20rem;
+    font-weight: 500;
+    color: rgba(78, 76, 76, 1);
+
+}
+
+.detail-box6 .contract-box .line2 {
+    font-size: .30rem;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 1);
+    margin-top: .22rem;
+}
+
+.detail-box6 .contract-box .line3 {
+    /* width: 149px; */
+    /* height: 16px; */
+    font-size: .16rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+    margin-top: .10rem;
+}
+
+.detail-box6 .contract-box .line4 {
+    width: 1.22rem;
+    height: .35rem;
+    background: rgba(246, 171, 0, 1);
+    border-radius: .18rem;
+    font-size: .16rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    margin-top: .17rem;
+    line-height: .35rem;
+}
+
+.detail-box6 .public-box,
+.detail-box6 .app-box {
+    width: 2.50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Microsoft YaHei;
+    float: left;
+
+}
+
+.detail-box6 .public-box {
+    margin-left: 2rem;
+}
+
+.detail-box6 .app-box {
+    margin-left: 1.00rem;
+}
+
+.detail-box6 .public-box .line1,
+.detail-box6 .app-box .line1 {
+    font-size: .16rem;
+    font-weight: 500;
+    color: rgba(78, 76, 76, 1);
+    line-height: .30rem;
+
+}
+
+.detail-box6 .public-box .line3,
+.detail-box6 .app-box .line3 {
+    font-size: .16rem;
+    font-weight: 500;
+    color: rgba(240, 132, 0, 1);
+    line-height: .30rem;
+}
+
+.dae-footer p {
+    width: 100%;
+    height: .83rem;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: rgba(112, 112, 112, 1);
+    line-height: .45rem;
+    font-size: .20rem;
+    text-align: center;
+    line-height: .83rem;
+}
